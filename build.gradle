@@ -1,0 +1,31 @@
+import groovy.json.*
+
+apply plugin: "java"
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+ext {
+    mindustryVersion = 'v104'
+
+    pluginVersion = {
+        def configFile = file("$rootDir/src/main/resources/plugin.json")
+        def json = new JsonSlurper().parseText(configFile.text)
+
+        return json.version
+    }
+}
+
+version = "${project.pluginVersion()}"
+
+dependencies {
+    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+}
+
+jar {
+    archiveFileName = "${project.name}-${project.version}.jar"
+    from configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+}
