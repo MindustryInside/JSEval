@@ -13,7 +13,7 @@ public class JSEval extends Plugin {
         handler.<Player>register("js", "<code...>", "Execute JavaScript code.", (args, player) -> {
             if (player.isAdmin) {
                  String output = mods.getScripts().runConsole(args[0]);
-                 player.sendMessage("> " + (isError(output) ? "[red]" + output : output));
+                 player.sendMessage("> " + (isError(output) ? "[#ff341c]" + output : output));
             }
         });
     }
