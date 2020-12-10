@@ -3,5 +3,5 @@
     "description": "Allows admins to execute JavaScript code using a special command.",
     "author": "Summet",
     "main": "jseval.JSEval",
-    "version": "1.1"
+    "version": "1.2"
 }
