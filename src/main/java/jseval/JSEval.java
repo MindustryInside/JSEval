@@ -2,10 +2,11 @@ package jseval;
 
 import arc.util.*;
 import mindustry.gen.*;
-import mindustry.mod.Plugin;
+import mindustry.mod.*;
 
 import static mindustry.Vars.*;
 
+@SuppressWarnings("unused")
 public class JSEval extends Plugin {
 
     @Override
