@@ -10,15 +10,11 @@ repositories {
 ext {
     mindustryVersion = 'v126.2'
 
-    pluginVersion = {
+    config = {
         def configFile = file("$rootDir/src/main/resources/plugin.json")
-        def json = new JsonSlurper().parseText(configFile.text)
-
-        return json.version
+        return new JsonSlurper().parseText(configFile.text)
     }
 }
-
-version = "${project.pluginVersion()}"
 
 dependencies {
     compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
@@ -26,6 +22,6 @@ dependencies {
 }
 
 jar {
-    archiveFileName = "${project.name}.jar"
+    archiveFileName = "${project.config.name}.jar"
     from configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 }
