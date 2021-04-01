@@ -16,7 +16,9 @@ jobs:
         with:
           java-version: 14
       - name: Build plugin
-        run: ./gradlew jar
+        run: |
+          chmod +x gradlew
+          ./gradlew jar
       - name: Upload jar
         uses: svenstaro/upload-release-action@v2
         with:
