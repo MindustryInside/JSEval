@@ -26,6 +26,6 @@ dependencies {
 }
 
 jar {
-    archiveFileName = "${project.name}-${project.version}.jar"
+    archiveFileName = "${project.name}.jar"
     from configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 }
